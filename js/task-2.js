@@ -30,13 +30,12 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-images.forEach(image => {
-  const listItem = document.createElement('li');
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-  listItem.appendChild(img);
-  gallery.appendChild(listItem);
-});
+const galleryHTML = images.map(image => `
+  <li>
+    <img src="${image.url}" alt="${image.alt}" width="300">
+  </li>
+`).join('');
+
+gallery.innerHTML = galleryHTML;
 
 
